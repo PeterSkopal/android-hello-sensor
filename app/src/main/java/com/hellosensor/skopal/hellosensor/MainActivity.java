@@ -10,23 +10,21 @@ import android.widget.ImageView;
 public class MainActivity extends AppCompatActivity {
 
     private Button accelerometer;
-
+    private Button compass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
 
-        accelerometer =(Button)findViewById(R.id.accelerometer_button);
+    public void onAccelerometer(View view) {
+        Intent intent = new Intent(this, Accelerometer.class);
+        startActivity(intent);
+    }
 
-        accelerometer.setOnClickListener(new View.OnClickListener() {
-
-
-
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Accelerometer.class));
-            }
-        });
+    public void onCompass(View view) {
+        Intent intent2 = new Intent(this, Compass.class);
+        startActivity(intent2);
     }
 
 
